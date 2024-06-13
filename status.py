@@ -1,0 +1,11 @@
+STATUS_JOERN_ERROR = 'Joern Error'
+STATUS_CODE_NOT_EXIST = 'Code not Exist'
+STATUS_PACKAGE_JSON_NOT_EXIST = 'Package Json not exist'
+STATUS_CODE_SYNTACTIC_ERROR = 'Code has Syntactic Error'
+STATUS_EMPTY_PACKAGE = 'Empty Package'
+STATUS_PROGRAM_ERROR = 'Program Error'
+STATUS_BENIGN = 'Benign'
+STATUS_MALICIOUS = 'Malicious'
+STATUS_TIMEOUT = 'Timeout'
+STATUS_OBFUSCATION = 'Obfuscation'
+STATUS_GPT_ERROR = "GPT Error"
