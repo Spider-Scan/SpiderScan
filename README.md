@@ -4,35 +4,6 @@ SpiderScan: Practical Detection of Malicious NPM Packages Based on Graph-Based B
 
 ![Approach Overview of SpiderScan](./overview.png)
 
-## Supplement to the obfuscation evaluation in paper
-
-The evaluation of the effectiveness of the obfuscation detector is presented here.
-we compare the DONAPI[^1], JAST[^2], JSTAP[^3], and choose the *ngrams_ast* and *value_tokens* approach in JSTAP as they perform best in the paper.
-
-The results of the effectiveness evaluation of the obfuscation detector are shown in the table below, which follows the setup in RQ1.
-
-**Effectiveness Evaluation Results of Obfuscation Detector (RQ1)**
-
-| Tools               | Precision | Recall | F1    |
-| ------------------- | --------- | ------ | ----- |
-| SpiderScan          | 98.3%     | 82.6%  | 89.4% |
-| DONAPI              | 86.3%     | 66.2%  | 74.1% |
-| JAST                | 98.3%     | 67.0%  | 78.4% |
-| JSTAP(ngrams_ast)   | 99.9%     | 65.1%  | 77.4% |
-| JSTAP(value_tokens) | 58.9%     | 59.8%  | 58.5% |
-
-We obtained the obfuscation malicious code from JSTAP and the benign code from the top 5000 download packages. We randomly selected 1500 obfuscation and non-obfuscation samples from the two sets as our dataset. The results are shown in the table below:
-
-**Effectiveness Evaluation Results of Obfuscation Detector**
-
-| Tools               | Precision | Recall | F1    |
-| ------------------- | --------- | ------ | ----- |
-| SpiderScan          | 99.9%     | 97.2%  | 98.6% |
-| DONAPI              | 98.6%     | 97.5%  | 98.0% |
-| JAST                | 99.9%     | 96.7%  | 98.3% |
-| JSTAP(ngrams_ast)   | 99.9%     | 96.1%  | 98.0% |
-| JSTAP(value_tokens) | 99.9%     | 96.0%  | 97.9% |
-
 ## Introduction
 
 This project identifies malicious NPM packages based on graph-based behavior modeling and matching. Given a target package, SpiderScan constructs its suspicious behavior graphs and matches them with malicious behavior graphs, and uses dynamic analysis and LLM to confirm the maliciousness for certain malicious behaviors.
@@ -74,7 +45,36 @@ python analyse.py
 -report_dir          the directory contains the results of analysis.
 -joern_workspace     the directory contains the output of Joern export.
 ```
-The command below will dump the JSON result into the *report_dir*
+The command below will dump the JSON result into the *report_dir*.
+
+## Supplemental evaluation of the obfuscation detector
+
+The evaluation of the effectiveness of the obfuscation detector is presented here.
+we compare the DONAPI[^1], JAST[^2], JSTAP[^3], and choose the *ngrams_ast* and *value_tokens* approach in JSTAP as they perform best in the paper.
+
+The results of the effectiveness evaluation of the obfuscation detector are shown in the table below, which follows the dataset setup in RQ1.
+
+**Effectiveness Evaluation Results of Obfuscation Detector (RQ1)**
+
+| Tools               | Precision | Recall | F1    |
+| ------------------- | --------- | ------ | ----- |
+| SpiderScan          | 98.3%     | 82.6%  | 89.4% |
+| DONAPI              | 86.3%     | 66.2%  | 74.1% |
+| JAST                | 98.3%     | 67.0%  | 78.4% |
+| JSTAP(ngrams_ast)   | 99.9%     | 65.1%  | 77.4% |
+| JSTAP(value_tokens) | 58.9%     | 59.8%  | 58.5% |
+
+We obtained the obfuscation malicious code from JSTAP and the benign code from the top 5000 download packages. We randomly selected 1500 obfuscation and non-obfuscation samples from the two sets as our dataset. The results are shown in the table below:
+
+**Effectiveness Evaluation Results of Obfuscation Detector**
+
+| Tools               | Precision | Recall | F1    |
+| ------------------- | --------- | ------ | ----- |
+| SpiderScan          | 99.9%     | 97.2%  | 98.6% |
+| DONAPI              | 98.6%     | 97.5%  | 98.0% |
+| JAST                | 99.9%     | 96.7%  | 98.3% |
+| JSTAP(ngrams_ast)   | 99.9%     | 96.1%  | 98.0% |
+| JSTAP(value_tokens) | 99.9%     | 96.0%  | 97.9% |
 
 
 [^1]: DONAPI: Malicious NPM Packages Detector using Behavior Sequence Knowledge Mapping.
